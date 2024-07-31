@@ -3,9 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>UIAppFonts</key>
-	<array>
-		<string>EricaOne-Regular.ttf</string>
-	</array>
+	<array/>
+	<key></key>
+	<string>EricaOne-Regular.ttf</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>

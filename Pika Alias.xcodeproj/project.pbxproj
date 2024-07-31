@@ -13,6 +13,8 @@
 		B67622772C4FD863009D7527 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B67622752C4FD863009D7527 /* Main.storyboard */; };
 		B67622792C4FD865009D7527 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B67622782C4FD865009D7527 /* Assets.xcassets */; };
 		B676227C2C4FD865009D7527 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B676227A2C4FD865009D7527 /* LaunchScreen.storyboard */; };
+		B6F0745A2C5A5BBC003A137F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F074592C5A5BBC003A137F /* Constants.swift */; };
+		B6F0745F2C5A66B4003A137F /* EricaOne-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B6F0745E2C5A66B4003A137F /* EricaOne-Regular.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,7 +26,8 @@
 		B67622782C4FD865009D7527 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B676227B2C4FD865009D7527 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B676227D2C4FD865009D7527 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B6F074562C5A57D3003A137F /* EricaOne-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "EricaOne-Regular.ttf"; sourceTree = "<group>"; };
+		B6F074592C5A5BBC003A137F /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		B6F0745E2C5A66B4003A137F /* EricaOne-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "EricaOne-Regular.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,7 +44,7 @@
 		B67622632C4FD863009D7527 = {
 			isa = PBXGroup;
 			children = (
-				B6F074562C5A57D3003A137F /* EricaOne-Regular.ttf */,
+				B6F0745E2C5A66B4003A137F /* EricaOne-Regular.ttf */,
 				B676226E2C4FD863009D7527 /* Pika Alias */,
 				B676226D2C4FD863009D7527 /* Products */,
 			);
@@ -60,6 +63,7 @@
 			children = (
 				B676226F2C4FD863009D7527 /* AppDelegate.swift */,
 				B67622712C4FD863009D7527 /* SceneDelegate.swift */,
+				B6F0745B2C5A5BC4003A137F /* Model */,
 				B6F074582C5A5922003A137F /* Control */,
 				B6F074572C5A5919003A137F /* View */,
 				B67622782C4FD865009D7527 /* Assets.xcassets */,
@@ -83,6 +87,14 @@
 				B67622732C4FD863009D7527 /* ViewController.swift */,
 			);
 			path = Control;
+			sourceTree = "<group>";
+		};
+		B6F0745B2C5A5BC4003A137F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B6F074592C5A5BBC003A137F /* Constants.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -144,6 +156,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B676227C2C4FD865009D7527 /* LaunchScreen.storyboard in Resources */,
+				B6F0745F2C5A66B4003A137F /* EricaOne-Regular.ttf in Resources */,
 				B67622792C4FD865009D7527 /* Assets.xcassets in Resources */,
 				B67622772C4FD863009D7527 /* Main.storyboard in Resources */,
 			);
@@ -159,6 +172,7 @@
 				B67622742C4FD863009D7527 /* ViewController.swift in Sources */,
 				B67622702C4FD863009D7527 /* AppDelegate.swift in Sources */,
 				B67622722C4FD863009D7527 /* SceneDelegate.swift in Sources */,
+				B6F0745A2C5A5BBC003A137F /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

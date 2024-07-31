@@ -3,10 +3,16 @@
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="EricaOne-Regular.ttf">
+            <string>EricaOne-Regular</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -19,14 +25,47 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Tausta" translatesAutoresizingMaskIntoConstraints="NO" id="Yda-ab-2BB">
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pika Alias" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w83-sS-dNB">
+                                <rect key="frame" x="0.0" y="84" width="393" height="52.333333333333343"/>
+                                <fontDescription key="fontDescription" name="EricaOne-Regular" family="Erica One" pointSize="35"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                                <color key="shadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <size key="shadowOffset" width="0.0" height="0.0"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XKO-Xk-t9m">
+                                <rect key="frame" x="171" y="726" width="51.333333333333343" height="52"/>
+                                <fontDescription key="fontDescription" name="EricaOne-Regular" family="Erica One" pointSize="35"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                                <color key="shadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <size key="shadowOffset" width="0.0" height="0.0"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kKM-l0-wD5">
+                                <rect key="frame" x="134.66666666666666" y="396.66666666666669" width="123.99999999999997" height="59"/>
+                                <color key="tintColor" name="green"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Aloita">
+                                    <fontDescription key="titleFontDescription" name="EricaOne-Regular" family="Erica One" pointSize="30"/>
+                                    <color key="baseForegroundColor" name="green"/>
+                                    <color key="baseBackgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </buttonConfiguration>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="Yda-ab-2BB" secondAttribute="bottom" id="2BQ-Lx-N7s"/>
+                            <constraint firstItem="w83-sS-dNB" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="2Sh-je-l9l"/>
+                            <constraint firstItem="w83-sS-dNB" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="25" id="Luz-CH-Tle"/>
+                            <constraint firstItem="kKM-l0-wD5" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="UZ8-3X-lrP"/>
+                            <constraint firstItem="XKO-Xk-t9m" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Urk-Jk-AeR"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="XKO-Xk-t9m" secondAttribute="bottom" constant="40" id="WuX-92-s17"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Yda-ab-2BB" secondAttribute="trailing" id="XgE-KL-2RY"/>
+                            <constraint firstItem="kKM-l0-wD5" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="cMb-f6-D5X"/>
                             <constraint firstItem="Yda-ab-2BB" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="ghe-iJ-lgf"/>
                             <constraint firstItem="Yda-ab-2BB" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="oOt-3n-HQA"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="w83-sS-dNB" secondAttribute="trailing" id="xXo-g0-kDe"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -37,6 +76,9 @@
     </scenes>
     <resources>
         <image name="Tausta" width="1080" height="1920"/>
+        <namedColor name="green">
+            <color red="0.82745098039215681" green="0.89411764705882357" blue="0.37647058823529411" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
