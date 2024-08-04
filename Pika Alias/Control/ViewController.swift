@@ -47,7 +47,9 @@ class ViewController: UIViewController {
 
     
     @IBAction func startPressed(_ sender: UIButton) {
+        countDownLabel.removeFromSuperview()
         startButton.isHidden = true
+        topLabel.isHidden = false
         countdownTimer()
     }
     
@@ -68,7 +70,10 @@ class ViewController: UIViewController {
         slideLabelLeft(label: label1)
         growLabel(label: label2)
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
-                    self.setWordLabels()
+            self.setWordLabels()
+            if self.shouldEndGame {
+                self.endGame()
+            }
         }
         
     }
@@ -81,14 +86,45 @@ class ViewController: UIViewController {
         growLabel(label: label2)
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
             self.setWordLabels()
+            if self.shouldEndGame {
+                self.endGame()
+            }
+        }
+    }
+    
+    @objc func handlePan(_ sender: UIPanGestureRecognizer) {
+   
+    }
+    
+    func endGame() {
+        topLabel.isHidden = true
+        gameElementVisibility(hidden: true)
+        label1.removeFromSuperview()
+        label2.removeFromSuperview()
+        
+        countDownLabel = createCountdownLabel()
+        view.addSubview(countDownLabel)
+        countDownLabel.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: 100)
+        countDownLabel.center.x = view.center.x
+        countDownLabel.center.y = view.center.y - 100
+        countDownLabel.text = ""
+        setShadow(for: countDownLabel)
+
+        
+        let text = "Pisteet: \(points)"
+        var charIndex = 0.0
+        for letter in text {
+            Timer.scheduledTimer(withTimeInterval: 0.1 * charIndex, repeats: false) { (timer) in self.countDownLabel.text?.append(letter)
+            }
+            charIndex += 1
+        }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            self.startButton.isHidden = false
         }
     }
     
   
-    
-    
-    
-
 }
 
 
@@ -125,7 +161,7 @@ extension ViewController {
     private func gameTimer() {
         timeLabel.isHidden = false
         setShadow(for: timeLabel)
-        countdownTime = 10
+        countdownTime = 5
         gameTimerFired()
         timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(gameTimerFired), userInfo: nil, repeats: true)
     }
@@ -227,6 +263,9 @@ extension ViewController {
         label1 = labels[0]
         label2 = labels[1]
         label2.alpha = 0
+        
+        let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(handlePan))
+        label1.addGestureRecognizer(panGestureRecognizer)
     
     }
     
