@@ -26,8 +26,8 @@
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pika Alias" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w83-sS-dNB">
-                                <rect key="frame" x="0.0" y="84" width="393" height="52.333333333333343"/>
-                                <fontDescription key="fontDescription" name="EricaOne-Regular" family="Erica One" pointSize="35"/>
+                                <rect key="frame" x="0.0" y="84" width="393" height="60"/>
+                                <fontDescription key="fontDescription" name="EricaOne-Regular" family="Erica One" pointSize="40"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                                 <color key="shadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -50,6 +50,9 @@
                                     <color key="baseForegroundColor" name="green"/>
                                     <color key="baseBackgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="startPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="FG6-kt-Mca"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -68,6 +71,11 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="w83-sS-dNB" secondAttribute="trailing" id="xXo-g0-kDe"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="startButton" destination="kKM-l0-wD5" id="Kew-0Q-DvB"/>
+                        <outlet property="timeLabel" destination="XKO-Xk-t9m" id="PwX-3Q-1zu"/>
+                        <outlet property="topLabel" destination="w83-sS-dNB" id="dlI-46-88q"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
