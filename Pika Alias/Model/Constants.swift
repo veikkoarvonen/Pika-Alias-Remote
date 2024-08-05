@@ -8,12 +8,14 @@
 import UIKit
 
 struct C {
+    
+    //Fonts, colors & image names
     static let font = "EricaOne-Regular"
     static let green = "green"
     static let wrong = "wrong"
     static let right = "right"
 
-    
+    //Alias words
     static let words = [
         "Paavo Pesusieni", "Ikkuna", "Mike Tyson", "Petteri Orpo", "Riikka Purra",
         "Sanna Marin", "Kynttilä", "Yhdyntä", "Varvas", "Kynsilakka", "Huulet",

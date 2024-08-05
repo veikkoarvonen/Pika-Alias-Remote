@@ -45,7 +45,8 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        //Add rest of the UI programatically
         addCircles()
         addButtons()
         gameElementVisibility(hidden: true)
@@ -62,19 +63,8 @@ class ViewController: UIViewController {
         countdownTimer()
     }
     
-    func startGame() {
-        points = 0
-        currentWord = 0
-        countDownLabel.removeFromSuperview()
-        topLabel.text = "Pisteet: \(points)"
-        words.shuffle()
-        gameElementVisibility(hidden: false)
-        gameTimer()
-        setWordLabels()
-        
-    }
     
-    @objc func leftButtonTapped() {
+    @objc private func leftButtonTapped() {
         currentWord += 1
         slideLabelLeft(label: label1)
         growLabel(label: label2)
@@ -87,7 +77,7 @@ class ViewController: UIViewController {
         
     }
     
-    @objc func rightButtonTapped() {
+    @objc private func rightButtonTapped() {
         currentWord += 1
         points += 1
         topLabel.text = "Pisteet: \(points)"
@@ -100,6 +90,9 @@ class ViewController: UIViewController {
             }
         }
     }
+    
+    
+//MARK: - Pan gesture
     
     @objc func handlePan(_ sender: UIPanGestureRecognizer) {
         
@@ -131,6 +124,7 @@ class ViewController: UIViewController {
                 let width = view.frame.width
                 let center = label.center.x
                 
+                //perform animations based on final location
                 if center < width / 4 {
                     leftButtonTapped()
                 } else if center > width * (3/4) {
@@ -143,6 +137,20 @@ class ViewController: UIViewController {
                 }
             }
         }
+    }
+    
+//MARK: - Start & end the game
+    
+    func startGame() {
+        points = 0
+        currentWord = 0
+        countDownLabel.removeFromSuperview()
+        topLabel.text = "Pisteet: \(points)"
+        words.shuffle()
+        gameElementVisibility(hidden: false)
+        gameTimer()
+        setWordLabels()
+        
     }
     
     func endGame() {
@@ -160,7 +168,7 @@ class ViewController: UIViewController {
         countDownLabel.text = ""
         setShadow(for: countDownLabel)
 
-        
+        // Display final points letter by letter
         let text = "Pisteet: \(points)"
         var charIndex = 0.0
         for letter in text {
@@ -270,13 +278,6 @@ extension ViewController {
         UIView.animate(withDuration: 0.3, delay: 0, animations: {
             label.center.x -= self.view.frame.width
             self.rotateLabel(label: label, byDegrees: -45)
-        })
-    }
-    
-    private func fadeInLabel(label: UILabel) {
-        label.alpha = 0
-        UIView.animate(withDuration: 0.3, delay: 0, animations: {
-            label.alpha = 1
         })
     }
     
