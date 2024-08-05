@@ -34,7 +34,7 @@
                                 <size key="shadowOffset" width="0.0" height="0.0"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XKO-Xk-t9m">
-                                <rect key="frame" x="171" y="726" width="51.333333333333343" height="52"/>
+                                <rect key="frame" x="171" y="725.66666666666663" width="51.333333333333343" height="52.333333333333371"/>
                                 <fontDescription key="fontDescription" name="EricaOne-Regular" family="Erica One" pointSize="35"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -42,10 +42,10 @@
                                 <size key="shadowOffset" width="0.0" height="0.0"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kKM-l0-wD5">
-                                <rect key="frame" x="134.66666666666666" y="396.66666666666669" width="123.99999999999997" height="59"/>
+                                <rect key="frame" x="138.33333333333334" y="396.66666666666669" width="116.33333333333334" height="59"/>
                                 <color key="tintColor" name="green"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Aloita">
+                                <buttonConfiguration key="configuration" style="filled" title="Pelaa">
                                     <fontDescription key="titleFontDescription" name="EricaOne-Regular" family="Erica One" pointSize="30"/>
                                     <color key="baseForegroundColor" name="green"/>
                                     <color key="baseBackgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

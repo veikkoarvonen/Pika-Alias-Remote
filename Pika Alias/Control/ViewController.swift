@@ -112,7 +112,8 @@ class ViewController: UIViewController {
             //Move the label on x-axis
             label.center = CGPoint(x: label.center.x + translation.x, y: label.center.y)
             
-            
+            //Rotate label 45 degrees per view's width
+            label.transform = CGAffineTransform(rotationAngle: (label.center.x - view.center.x) / view.frame.width * .pi / 4)
             
             //Determine what to do at the end based on final location
             if sender.state == .ended {
@@ -137,6 +138,7 @@ class ViewController: UIViewController {
                 } else {
                     UIView.animate(withDuration: 0.4) {
                         label.center = self.view.center
+                        label.transform = CGAffineTransform(rotationAngle: 0)
                     }
                 }
             }
@@ -209,7 +211,7 @@ extension ViewController {
     private func gameTimer() {
         timeLabel.isHidden = false
         setShadow(for: timeLabel)
-        countdownTime = 60
+        countdownTime = 10
         gameTimerFired()
         timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(gameTimerFired), userInfo: nil, repeats: true)
     }
@@ -253,7 +255,7 @@ extension ViewController {
     private func setShadow(for label: UILabel) {
         label.layer.shadowColor = UIColor.black.cgColor
         label.layer.shadowOffset = CGSize(width: 0, height: 0)
-        label.layer.shadowOpacity = 1
+        label.layer.shadowOpacity = 0.7
         label.layer.shadowRadius = 5
     }
     

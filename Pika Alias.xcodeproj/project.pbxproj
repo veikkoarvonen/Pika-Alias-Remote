@@ -41,10 +41,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		B67622632C4FD863009D7527 = {
+		B61EAC0A2C6105DA0012AB0E /* CustomFonts */ = {
 			isa = PBXGroup;
 			children = (
 				B6F0745E2C5A66B4003A137F /* EricaOne-Regular.ttf */,
+			);
+			path = CustomFonts;
+			sourceTree = "<group>";
+		};
+		B67622632C4FD863009D7527 = {
+			isa = PBXGroup;
+			children = (
+				B61EAC0A2C6105DA0012AB0E /* CustomFonts */,
 				B676226E2C4FD863009D7527 /* Pika Alias */,
 				B676226D2C4FD863009D7527 /* Products */,
 			);
