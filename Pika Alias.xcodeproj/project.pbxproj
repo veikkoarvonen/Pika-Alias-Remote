@@ -61,8 +61,6 @@
 		B676226E2C4FD863009D7527 /* Pika Alias */ = {
 			isa = PBXGroup;
 			children = (
-				B676226F2C4FD863009D7527 /* AppDelegate.swift */,
-				B67622712C4FD863009D7527 /* SceneDelegate.swift */,
 				B6F0745B2C5A5BC4003A137F /* Model */,
 				B6F074582C5A5922003A137F /* Control */,
 				B6F074572C5A5919003A137F /* View */,
@@ -92,6 +90,8 @@
 		B6F0745B2C5A5BC4003A137F /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				B676226F2C4FD863009D7527 /* AppDelegate.swift */,
+				B67622712C4FD863009D7527 /* SceneDelegate.swift */,
 				B6F074592C5A5BBC003A137F /* Constants.swift */,
 			);
 			path = Model;

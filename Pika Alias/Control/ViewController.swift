@@ -8,16 +8,19 @@
 import UIKit
 
 class ViewController: UIViewController {
-    
+
+//MARK: - Variables & UI elements
+
+    // Constants for UI element locations
     let centerConstant: CGFloat = 40
     let buttonCenterConstant: CGFloat = 20
-    var countdownTime = 3
-    var timer: Timer?
     
+    // IBOutlets
     @IBOutlet weak var topLabel: UILabel!
     @IBOutlet weak var startButton: UIButton!
     @IBOutlet weak var timeLabel: UILabel!
     
+    // Programatically added UI elements
     var leftCircleBig = UIImageView()
     var leftCircleSmall = UIImageView()
     var rightCircleBig = UIImageView()
@@ -25,15 +28,21 @@ class ViewController: UIViewController {
     var leftButtonImage = UIImageView()
     var rightButtonImage = UIImageView()
     
+    //Game labels
     var label1 = UILabel()
     var label2 = UILabel()
     var countDownLabel = UILabel()
     
+    // Game variables
     var points: Int = 0
     var shouldEndGame: Bool = false
     var words = C.words
     var currentWord: Int = 0
-    
+    var countdownTime = 3
+    var timer: Timer?
+ 
+//MARK: - Functions
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -45,8 +54,8 @@ class ViewController: UIViewController {
         
     }
 
-    
     @IBAction func startPressed(_ sender: UIButton) {
+        topLabel.text = "Pika Alias"
         countDownLabel.removeFromSuperview()
         startButton.isHidden = true
         topLabel.isHidden = false
@@ -93,10 +102,49 @@ class ViewController: UIViewController {
     }
     
     @objc func handlePan(_ sender: UIPanGestureRecognizer) {
-   
+        
+        // Set translation
+        let translation = sender.translation(in: view)
+        sender.setTranslation(CGPoint.zero, in: view)
+        
+        if let label = sender.view {
+            
+            //Move the label on x-axis
+            label.center = CGPoint(x: label.center.x + translation.x, y: label.center.y)
+            
+            
+            
+            //Determine what to do at the end based on final location
+            if sender.state == .ended {
+                
+                //Slide label if the velocity is high enough
+                let velocity = sender.velocity(in: view)
+                let tressholdVelocity: CGFloat = 1000
+                
+                if velocity.x > tressholdVelocity {
+                    slideLabelRight(label: label as! UILabel)
+                } else if velocity.x < -tressholdVelocity {
+                    slideLabelLeft(label: label as! UILabel)
+                }
+                
+                let width = view.frame.width
+                let center = label.center.x
+                
+                if center < width / 4 {
+                    leftButtonTapped()
+                } else if center > width * (3/4) {
+                    rightButtonTapped()
+                } else {
+                    UIView.animate(withDuration: 0.4) {
+                        label.center = self.view.center
+                    }
+                }
+            }
+        }
     }
     
     func endGame() {
+        shouldEndGame = false
         topLabel.isHidden = true
         gameElementVisibility(hidden: true)
         label1.removeFromSuperview()
@@ -161,7 +209,7 @@ extension ViewController {
     private func gameTimer() {
         timeLabel.isHidden = false
         setShadow(for: timeLabel)
-        countdownTime = 5
+        countdownTime = 60
         gameTimerFired()
         timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(gameTimerFired), userInfo: nil, repeats: true)
     }
@@ -212,12 +260,14 @@ extension ViewController {
     private func slideLabelRight(label: UILabel) {
         UIView.animate(withDuration: 0.3, delay: 0, animations: {
             label.center.x += self.view.frame.width
+            self.rotateLabel(label: label, byDegrees: 45)
         })
     }
     
     private func slideLabelLeft(label: UILabel) {
         UIView.animate(withDuration: 0.3, delay: 0, animations: {
             label.center.x -= self.view.frame.width
+            self.rotateLabel(label: label, byDegrees: -45)
         })
     }
     
@@ -227,6 +277,12 @@ extension ViewController {
             label.alpha = 1
         })
     }
+    
+    func rotateLabel(label: UILabel, byDegrees degrees: CGFloat) {
+            let radians = degrees * CGFloat.pi / 180
+            label.transform = CGAffineTransform(rotationAngle: radians)
+    }
+
 
     
 //MARK: - Hide and show UI elements
@@ -266,6 +322,7 @@ extension ViewController {
         
         let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(handlePan))
         label1.addGestureRecognizer(panGestureRecognizer)
+        label1.isUserInteractionEnabled = true
     
     }
     
