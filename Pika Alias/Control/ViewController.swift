@@ -219,7 +219,7 @@ extension ViewController {
     private func gameTimer() {
         timeLabel.isHidden = false
         setShadow(for: timeLabel)
-        countdownTime = 10
+        countdownTime = 60
         gameTimerFired()
         timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(gameTimerFired), userInfo: nil, repeats: true)
     }
